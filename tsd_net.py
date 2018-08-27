@@ -52,7 +52,7 @@ def init_gru(gru):
     gru.reset_parameters()
     for _, hh, _, _ in gru.all_weights:
         for i in range(0, hh.size(0), gru.hidden_size):
-            torch.nn.init.orthogonal(hh[i:i+gru.hidden_size],gain=1)
+            torch.nn.init.orthogonal_(hh[i:i+gru.hidden_size],gain=1)
 
 class Attn(nn.Module):
     def __init__(self, hidden_size):
